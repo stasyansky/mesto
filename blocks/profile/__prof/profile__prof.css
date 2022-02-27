@@ -1,0 +1,17 @@
+.profile__prof {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 0;
+  margin: 22px 53px 38px;
+}
+@media screen and (min-width: 508px) {
+  .profile__prof {
+    margin: 15px 0 0 15px;
+  }
+}
+@media screen and (min-width: 900px) {
+  .profile__prof {
+    font-size: 18px;
+    margin: 19px 30px 41px;
+  }
+}
