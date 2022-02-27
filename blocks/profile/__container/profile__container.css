@@ -11,19 +11,12 @@
 }
 @media screen and (min-width: 694px) {
   .profile__container {
-    width: 270px;
-  }
-}
-@media screen and (min-width: 694px) {
-  .popup__container {
-    width: 430px;
-    height: 330px;
-    transform: translate(-50%, 59%);
+    max-width: 370px;
   }
 }
 @media screen and (min-width: 900px) {
   .profile__container {
     justify-content: start;
-    width: 370px;
+    max-width: 600px;
   }
 }
