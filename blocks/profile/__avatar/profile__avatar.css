@@ -4,7 +4,7 @@
   border-radius: 50%;
   object-fit: cover;
   align-self: center;
-  margin-bottom: 35px;
+  margin-bottom: 26px;
 }
 @media screen and (min-width: 508px) {
   .profile__avatar {

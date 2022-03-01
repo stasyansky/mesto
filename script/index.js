@@ -4,8 +4,8 @@ const profileProf = document.querySelector('.profile__prof');
 const popup = document.querySelector('.popup');
 const closePopup = popup.querySelector('.popup__close-btn');
 const formEditProfile = popup.querySelector('.popup__form');
-let inputName = popup.querySelector('.popup__item_type-name');
-let inputProf = popup.querySelector('.popup__item_type-prof');
+let inputName = popup.querySelector('.popup__item_type_name');
+let inputProf = popup.querySelector('.popup__item_type_prof');
 
 function togglePopup() {
   popup.classList.toggle('popup_opened');

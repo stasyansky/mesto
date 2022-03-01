@@ -6,8 +6,6 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="./vendor/normalize.css">
-  <link rel="stylesheet" href="./vendor/fonts/fonts.css">
   <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
@@ -16,61 +14,63 @@
     <header class="header">
       <img class="header__logo" src="./images/logo.svg" alt="Логотип сайта">
     </header>
-    <div class="profile">
-      <img class="profile__avatar" src="./images/avatar.png" alt="Фотография аватара">
-      <div class="profile__container">
-        <p class="profile__name">Жак-Ив Кусто</p>
-        <button type="button" class="profile__edit-btn" aria-label="Редактировать профиль"></button>
-        <p class="profile__prof">Исследователь океана</p>
-      </div>
-      <button type="button" class="profile__add-btn" aria-label="Добавить фото"></button>
-    </div>
-    <article class="places">
-      <ul class="places__cards">
-        <li class="card">
-          <img class="card__pic" src="./images/karachaevsk.png" alt="Фотография">
-          <div class="card__caption">
-            <p class="card__text">Карачаевск</p>
-            <button type="button" class="card__like"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__pic" src="./images/elbrus.png" alt="Фотография">
-          <div class="card__caption">
-            <p class="card__text">Гора Эльбрус</p>
-            <button type="button" class="card__like"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__pic" src="./images/dombay.png" alt="Фотография">
-          <div class="card__caption">
-            <p class="card__text">Домбай</p>
-            <button type="button" class="card__like"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__pic" src="./images/elbrus.png" alt="Фотография">
-          <div class="card__caption">
-            <p class="card__text">Гора Эльбрус</p>
-            <button type="button" class="card__like"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__pic" src="./images/dombay.png" alt="Фотография">
-          <div class="card__caption">
-            <p class="card__text">Домбай</p>
-            <button type="button" class="card__like"></button>
-          </div>
-        </li>
-        <li class="card">
-          <img class="card__pic" src="./images/karachaevsk.png" alt="Фотография">
-          <div class="card__caption">
-            <p class="card__text">Карачаево-Черкессия</p>
-            <button type="button" class="card__like"></button>
-          </div>
-        </li>
-      </ul>
-    </article>
+    <main class="content">
+      <section class="profile">
+        <img class="profile__avatar" src="./images/avatar.png" alt="Фотография аватара">
+        <div class="profile__container">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button type="button" class="profile__edit-btn" aria-label="Редактировать профиль"></button>
+          <p class="profile__prof">Исследователь океана</p>
+        </div>
+        <button type="button" class="profile__add-btn" aria-label="Добавить фото"></button>
+      </section>
+      <section class="places">
+        <ul class="places__cards">
+          <li class="card">
+            <img class="card__pic" src="./images/karachaevsk.png" alt="Фотография">
+            <div class="card__caption">
+              <h2 class="card__text">Карачаевск</h2>
+              <button type="button" class="card__like" aria-label="Поставить лайк"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__pic" src="./images/elbrus.png" alt="Фотография">
+            <div class="card__caption">
+              <h2 class="card__text">Гора Эльбрус</h2>
+              <button type="button" class="card__like" aria-label="Поставить лайк"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__pic" src="./images/dombay.png" alt="Фотография">
+            <div class="card__caption">
+              <p class="card__text">Домбай</p>
+              <button type="button" class="card__like" aria-label="Поставить лайк"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__pic" src="./images/elbrus.png" alt="Фотография">
+            <div class="card__caption">
+              <h2 class="card__text">Гора Эльбрус</h2>
+              <button type="button" class="card__like" aria-label="Поставить лайк"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__pic" src="./images/dombay.png" alt="Фотография">
+            <div class="card__caption">
+              <h2 class="card__text">Домбай</h2>
+              <button type="button" class="card__like" aria-label="Поставить лайк"></button>
+            </div>
+          </li>
+          <li class="card">
+            <img class="card__pic" src="./images/karachaevsk.png" alt="Фотография">
+            <div class="card__caption">
+              <h2 class="card__text">Карачаево-Черкессия</h2>
+              <button type="button" class="card__like" aria-label="Поставить лайк"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
     <footer class="footer">
       <p class="footer__copyright">&copy;&nbsp;2022&nbsp;Mesto Russia</p>
     </footer>
@@ -81,10 +81,10 @@
       </button>
       <form class="popup__form" name="formProfile">
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" name="popupName" maxlength="20" minlength="4"
-               class="popup__item popup__item_type-name" value="" placeholder="Введите свое имя" required />
-        <input type="text" name="popupProf" maxlength="30" minlength="4"
-               class="popup__item popup__item_type-prof" value="" placeholder="Ваша профессия" required />
+        <input type="text" name="popupName" minlength="4"
+               class="popup__item popup__item_type_name" value="" placeholder="Введите свое имя" required />
+        <input type="text" name="popupProf" minlength="4"
+               class="popup__item popup__item_type_prof" value="" placeholder="Ваша профессия" required />
         <button type="submit" class="popup__save-btn" aria-label="Кнопка сохранить">Сохранить</button>
       </form>
     </div>
