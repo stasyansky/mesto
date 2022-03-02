@@ -5,16 +5,10 @@
   width: 282px;
   height: auto;
   background-color: #ffffff;
-  margin: 123px auto 0;
   border-radius: 10px;
 }
 @media screen and (min-width: 694px) {
   .popup__container {
     width: 430px;
-  }
-}
-@media screen and (min-width: 900px) {
-  .popup__container {
-    top: 72px;
   }
 }

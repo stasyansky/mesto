@@ -1,5 +1,5 @@
 .popup_opened {
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: center;
 }
