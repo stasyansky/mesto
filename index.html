@@ -44,10 +44,9 @@
     </li>
   </template>
 
-  <div class="popup">
-    <div class="popup__container">
-      <button type="button" class="popup__close-btn" aria-label="Закрыть окно редактирования профиля">
-      </button>
+  <div class="popup popup-edit">
+    <div class="popup__container popup-edit_container">
+      <button type="button" class="popup__close-btn popup-edit__close-btn" aria-label="Закрыть попап"></button>
       <form class="popup__form popup__form_edit" name="formProfile">
         <h2 class="popup__title">Редактировать профиль</h2>
         <input
@@ -70,8 +69,14 @@
         />
         <button type="submit" class="popup__btn popup__btn_save" aria-label="Кнопка сохранить">Сохранить</button>
       </form>
-        <form class="popup__form popup__form_add-pic" name="formAddPic">
-          <h2 class="popup__title">Новое место</h2>
+    </div>
+  </div>
+
+  <div class="popup popup-add">
+    <div class="popup__container popup-add__container">
+      <button type="button" class="popup__close-btn popup-add__close-btn" aria-label="Закрыть попап"></button>
+      <form class="popup__form popup__form_add-pic" name="formAddPic">
+        <h2 class="popup__title">Новое место</h2>
           <input
             type="text"
             name="popupTitle"
@@ -83,17 +88,18 @@
           />
           <input
             type="text"
-            name="popuprUrl"
+            name="popupUrl"
             minlength="4"
             class="popup__item popup__item_type_url"
             value=""
             placeholder="Ссылка на картинку"
             required
           />
-          <button type="submit" class="popup__btn popup__btn_add" aria-label="Кнопка создать">Создать</button>
+        <button type="submit" class="popup__btn popup__btn_add" aria-label="Кнопка создать">Создать</button>
       </form>
     </div>
   </div>
+
   <div class="popup popup-preview">
     <div class="popup-preview__container">
       <button type="button" class="popup__close-btn popup-preview__close-btn" aria-label="Закрыть окно"></button>
