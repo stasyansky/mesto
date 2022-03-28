@@ -1,4 +1,4 @@
-.popup__btn {
+.form__btn {
   display: block;
   margin: 33px 0 25px;
   padding: 0;
@@ -12,12 +12,12 @@
   height: 46px;
   transition: opacity .3s linear;
 }
-.popup__btn:hover {
+.form__btn:hover:not(.form__btn_disabled) {
   opacity: .8;
   cursor: pointer;
 }
 @media screen and (min-width: 694px) {
-  .popup__btn {
+  .form__btn {
     margin: 36px 0 37px;
     font-size: 18px;
     width: 358px;

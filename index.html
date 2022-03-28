@@ -33,6 +33,117 @@
     </footer>
   </div>
 
+  <!--  Попап редактирования профиля начало -->
+  <div class="popup popup-edit">
+    <div class="popup__container popup-edit_container">
+      <button
+        type="button"
+        class="popup__close-btn popup-edit__close-btn"
+        aria-label="Закрыть попап">
+      </button>
+      <form name="formProfile" class="popup__form popup__form_edit" novalidate>
+        <h2 class="form__title">Редактировать профиль</h2>
+        <label class="form__field">
+          <input
+            type="text"
+            id="name"
+            name="popupName"
+            minlength="2"
+            maxlength="40"
+            class="form__input form__input_type_name"
+            value=""
+            placeholder="Введите свое имя"
+            required
+          />
+          <span class="form__text-error" id="name-error"></span>
+        </label>
+        <label class="form__field">
+          <input
+            type="text"
+            id="prof"
+            name="popupProf"
+            minlength="2"
+            maxlength="200"
+            class="form__input form__input_type_prof"
+            value=""
+            placeholder="Ваша профессия"
+            required
+          />
+          <span class="form__text-error" id="prof-error"></span>
+        </label>
+        <button
+          type="submit"
+          class="form__btn form__btn_save"
+          aria-label="Кнопка сохранить">
+          Сохранить
+        </button>
+      </form>
+    </div>
+  </div>
+  <!--  Попап редактирования профиля конец -->
+
+  <!--  Попап добавления карточки начало -->
+  <div class="popup popup-add">
+    <div class="popup__container popup-add__container">
+      <button
+        type="button"
+        class="popup__close-btn popup-add__close-btn"
+        aria-label="Закрыть попап">
+      </button>
+      <form name="formAddPic" class="popup__form popup__form_add-pic" novalidate>
+        <h2 class="form__title">Новое место</h2>
+        <label class="form__field">
+          <input
+            type="text"
+            id="title"
+            name="popupTitle"
+            minlength="2"
+            maxlength="30"
+            class="form__input form__input_type_title"
+            value=""
+            placeholder="Название"
+            required
+          />
+          <span class="form__text-error" id="title-error"></span>
+        </label>
+        <label class="form__field">
+          <input
+            type="url"
+            id="url"
+            name="popupUrl"
+            class="form__input form__input_type_url"
+            value=""
+            placeholder="Ссылка на картинку"
+            required
+          />
+          <span class="form__text-error" id="url-error"></span>
+        </label>
+        <button
+          type="submit"
+          class="form__btn form__btn_add"
+          aria-label="Кнопка создать">
+          Создать
+        </button>
+      </form>
+    </div>
+  </div>
+  <!--  Попап добавления карточки конец -->
+
+  <!--  Попап открытия превью начало -->
+  <div class="popup popup-preview">
+    <div class="popup-preview__container">
+      <button
+        type="button"
+        class="popup__close-btn popup-preview__close-btn"
+        aria-label="Закрыть окно">
+      </button>
+      <img class="popup-preview__img" src="#" alt="_"/>
+      <p class="popup-preview__text"></p>
+    </div>
+  </div>
+  <!--  Попап открытия превью конец -->
+
+  <!--  Шаблон карточки начало -->
   <template id="card_template">
     <li class="card">
       <button type="button" class="card__delete"></button>
@@ -43,70 +154,9 @@
       </div>
     </li>
   </template>
+  <!--  Шаблон карточки конец -->
 
-  <div class="popup popup-edit">
-    <div class="popup__container popup-edit__container">
-      <button type="button" class="popup__close-btn popup-edit__close-btn" aria-label="Закрыть попап"></button>
-      <form class="popup__form popup__form_edit" name="formProfile">
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <input
-          type="text"
-          name="popupName"
-          minlength="4"
-          class="popup__item popup__item_type_name"
-          value=""
-          placeholder="Введите свое имя"
-          required
-        />
-        <input
-          type="text"
-          name="popupProf"
-          minlength="4"
-          class="popup__item popup__item_type_prof"
-          value=""
-          placeholder="Ваша профессия"
-          required
-        />
-        <button type="submit" class="popup__btn popup__btn_save" aria-label="Кнопка сохранить">Сохранить</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="popup popup-add">
-    <div class="popup__container popup-add__container">
-      <button type="button" class="popup__close-btn popup-add__close-btn" aria-label="Закрыть попап"></button>
-      <form class="popup__form popup__form_add-pic" name="formAddPic">
-        <h2 class="popup__title">Новое место</h2>
-          <input
-            type="text"
-            name="popupTitle"
-            minlength="4"
-            class="popup__item popup__item_type_title"
-            value=""
-            placeholder="Название"
-            required
-          />
-          <input
-            type="text"
-            name="popupUrl"
-            minlength="4"
-            class="popup__item popup__item_type_url"
-            value=""
-            placeholder="Ссылка на картинку"
-            required
-          />
-        <button type="submit" class="popup__btn popup__btn_add" aria-label="Кнопка создать">Создать</button>
-      </form>
-    </div>
-  </div>
-
-  <div class="popup popup-preview">
-    <div class="popup-preview__container">
-      <button type="button" class="popup__close-btn popup-preview__close-btn" aria-label="Закрыть окно"></button>
-      <img class="popup-preview__img" src="#" alt="_"/>
-      <p class="popup-preview__text"></p>
-    </div>
-  </div>
+  <script src="./script/validate.js"></script>
   <script src="./script/index.js"></script>
 </body>
 </html>
