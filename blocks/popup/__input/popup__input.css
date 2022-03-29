@@ -1,6 +1,4 @@
-.form__input {
-  padding: 0 0 4px;
-  margin: 13px 0 5px;
+.popup__input {
   border: none;
   outline: none;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
@@ -10,7 +8,7 @@
   height: 27px;
 }
 @media screen and (min-width: 694px) {
-  .form__input {
+  .popup__input {
     width: 358px;
     height: 27px;
   }

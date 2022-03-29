@@ -1,10 +1,10 @@
 const validationObj = {
   formSelector: '.popup__form',
-  inputSelector: '.form__input',
-  submitButtonSelector: '.form__btn',
-  inactiveButtonClass: 'form__btn_disabled',
-  inputErrorClass: 'form__input_incorrect',
-  errorClass: 'form__text-error_active',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__btn',
+  inactiveButtonClass: 'popup__btn_disabled',
+  inputErrorClass: 'popup__input_incorrect',
+  errorClass: 'popup__text-error_active',
 }
 
 const showInputError = (formElement, inputElement, errorMessage, {inputErrorClass, errorClass}) => {
