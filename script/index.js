@@ -71,6 +71,9 @@ renderCards(initialCards);
 function togglePopup(currentPopup) {
   currentPopup.classList.toggle('popup_opened');
   popupIsOpen = !popupIsOpen;
+  if (popupIsOpen) {
+    closePopupEsc();
+  }
 }
 
 function editFormSubmit (evt) {
@@ -142,14 +145,17 @@ popupList.forEach((item) => {
     }
   });
 });
-window.onkeydown = function( event ) {
-  if (popupIsOpen) {
-    if ( event.key === "Escape" ) {
+
+function closePopupEsc() {
+  document.addEventListener('keydown', (evt) => {
+    if ( evt.key === "Escape" ) {
       const activePopup = document.querySelector('.popup_opened');
       togglePopup(activePopup);
+      document.removeEventListener('keydown',evt());
     }
-  }
-};
+  })
+}
+
 popupCloseButtonList.forEach((item) => {
   item.addEventListener('click', () => {
     const popup = item.parentElement.parentElement;
