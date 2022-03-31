@@ -73,14 +73,6 @@ function openPopup(currentPopup) {
 function closePopup(currentPopup) {
   currentPopup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupByEscape);
-  resetForms();
-}
-
-function resetForms() {
-  const forms = document.querySelectorAll('form');
-  forms.forEach(form => {
-    form.reset();
-  });
 }
 
 function editFormSubmit (evt) {
@@ -104,7 +96,7 @@ function addFormSubmit (evt) {
 }
 
 function checkEventInputForm(currentPopup) {
-  const form = currentPopup.querySelector('form');
+  const form = currentPopup.querySelector('.popup__form');
   if (form) {
     const inputs = form.querySelectorAll('.popup__input');
     inputs.forEach(input => {
@@ -113,7 +105,13 @@ function checkEventInputForm(currentPopup) {
   }
 }
 
+function resetFormPopup(currentPopup) {
+  const form = currentPopup.querySelector('.popup__form');
+    form.reset();
+}
+
 btnEditProfile.addEventListener('click', function () {
+  resetFormPopup(popupEdit);
   inputName.value = profileName.textContent;
   inputProf.value = profileProf.textContent;
   checkEventInputForm(popupEdit);
@@ -121,6 +119,7 @@ btnEditProfile.addEventListener('click', function () {
 });
 
 btnAddPicture.addEventListener('click', function () {
+  resetFormPopup(popupAdd);
   checkEventInputForm(popupAdd);
   openPopup(popupAdd);
 });
