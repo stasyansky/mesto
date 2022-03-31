@@ -33,7 +33,6 @@ const popupList = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup-edit');
 const popupAdd = document.querySelector('.popup-add');
 const popupPreview = document.querySelector('.popup-preview');
-let popupIsOpen = false;
 
 const formEdit = document.forms.formProfile;
 const inputName = formEdit.elements.popupName;
@@ -68,28 +67,27 @@ function renderCards(cardsToRender) {
 renderCards(initialCards);
 
 function openPopup(currentPopup) {
+  const form = currentPopup.querySelector('form');
+  if (form) {
+    const inputs = form.querySelectorAll('.popup__input');
+    inputs.forEach(input => {
+      input.dispatchEvent(new Event('input'));
+    });
+  }
   currentPopup.classList.add('popup_opened');
-  popupIsOpen = !popupIsOpen;
   document.addEventListener('keydown', closePopupByEscape);
 }
 function closePopup(currentPopup) {
   currentPopup.classList.remove('popup_opened');
-  popupIsOpen = !popupIsOpen;
-  if(!currentPopup.classList.contains('popup-preview')) {
-    clearForm(currentPopup);
-  }
   document.removeEventListener('keydown', closePopupByEscape);
+  resetForms();
 }
-const clearForm = (currentPopup) => {
-  const form = currentPopup.querySelector('.popup__form');
-  const labelList = form.querySelectorAll('.popup__field');
-  labelList.forEach((label) => {
-    const input = label.querySelector('.popup__input');
-    input.classList.remove('popup__input_incorrect');
-    input.value = '';
-    const span = label.querySelector(`#${input.id}-error`);
-    span.textContent = '';
-  })
+
+function resetForms() {
+  const forms = document.querySelectorAll('form');
+  forms.forEach(form => {
+    form.reset();
+  });
 }
 
 function editFormSubmit (evt) {
