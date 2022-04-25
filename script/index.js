@@ -63,9 +63,9 @@ function openPopup(currentPopup) {
   document.addEventListener('keydown', closePopupByEscape);
 }
 
-initialCards.forEach((item) => {
-  const card = new Card({
-    data: item,
+function createNewCard(data) {
+  return new Card({
+    data,
     cardSelector: '.card',
     cardTemplate,
     popupPreviewElements: {
@@ -74,17 +74,19 @@ initialCards.forEach((item) => {
       preview: popupPreview,
     },
     openPopupFn: openPopup,
-  });
-  const cardElement = card.generateCard();
-  cardElementsList.append(cardElement);
+  })
+}
+
+initialCards.forEach((item) => {
+  const card = createNewCard(item);
+  cardElementsList.append(card.cardElement);
 });
 
-const formList = Array.from(document.querySelectorAll(validationObj.formSelector));
-formList.forEach((formElement) => {
-  const validateElement = formElement.getAttribute('name');
-  formElement = new FormValidator({data: validationObj, validateElement});
-  formElement.enableValidation();
-})
+const formEditFormValidator = new FormValidator({data: validationObj, validateElement: 'formProfile'})
+formEditFormValidator.enableValidation();
+
+const formAddFormValidator = new FormValidator({data: validationObj, validateElement : 'formAddPic'})
+formAddFormValidator.enableValidation();
 
 function closePopup(currentPopup) {
   currentPopup.classList.remove('popup_opened');
@@ -106,19 +108,8 @@ function addFormSubmit (evt) {
     name: titleFormAdd,
     link: urlFormAdd
   };
-  const card = new Card({
-    data,
-    cardSelector: '.card',
-    cardTemplate,
-    popupPreviewElements: {
-      picture: popupPreviewPicture,
-      desc: popupPreviewPicDesc,
-      preview: popupPreview,
-    },
-    openPopupFn: openPopup,
-  });
-  const cardElement = card.generateCard();
-  cardElementsList.prepend(cardElement);
+  const card = createNewCard(data);
+  cardElementsList.prepend(card.cardElement);
   evt.currentTarget.reset();
   closePopup(popupAdd);
 }
@@ -149,6 +140,7 @@ btnEditProfile.addEventListener('click', function () {
 btnAddPicture.addEventListener('click', function () {
   resetFormPopup(popupAdd);
   checkEventInputForm(popupAdd);
+  formAddFormValidator.resetValidationErrors();
   openPopup(popupAdd);
 });
 

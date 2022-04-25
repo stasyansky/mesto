@@ -12,6 +12,11 @@ export class Card {
     this._cardTemplate = cardTemplate;
     this._popupPreviewElements = popupPreviewElements;
     this._openPopupFn = openPopupFn;
+    this._generateCard();
+  }
+
+  get cardElement() {
+    return this._element;
   }
 
   _getTemplate() {
@@ -21,38 +26,42 @@ export class Card {
       .cloneNode(true);
   }
 
-  generateCard() {
+  _generateCard() {
     this._element = this._getTemplate();
-    this._element.querySelector('.card__pic').src = this._link;
-    this._element.querySelector('.card__pic').alt = this._name;
-    this._element.querySelector('.card__text').textContent = this._name;
+    this._elementPic = this._element.querySelector('.card__pic');
+    this._elementText = this._element.querySelector('.card__text');
+    this._elementLike = this._element.querySelector('.card__like');
+    this._elementDelete = this._element.querySelector('.card__delete');
+    this._elementPic.src = this._link;
+    this._elementPic.alt = this._name;
+    this._elementText.textContent = this._name;
     this._setEventListeners();
-    return this._element;
   }
 
   _setEventListeners() {
-    this._element.querySelector('.card__like').addEventListener('click', () => {
+    this._elementLike.addEventListener('click', () => {
       this._handleLikeClick();
     });
-    this._element.querySelector('.card__delete').addEventListener('click', () => {
+    this._elementDelete.addEventListener('click', () => {
       this._handleDeleteClick();
     });
-    this._element.querySelector('.card__pic').addEventListener('click', () => {
+    this._elementPic.addEventListener('click', () => {
       this._handleOpenPreviewClick();
     });
   }
 
   _handleLikeClick() {
-    this._element.querySelector('.card__like').classList.toggle('card__like_active');
+    this._elementLike.classList.toggle('card__like_active');
   }
 
   _handleDeleteClick() {
     this._element.remove();
+    this._element = null;
   }
 
   _handleOpenPreviewClick() {
-    const src = this._element.querySelector('.card__pic').getAttribute('src');
-    const description = this._element.querySelector('.card__pic').getAttribute('alt');
+    const src = this._elementPic.getAttribute('src');
+    const description = this._elementPic.getAttribute('alt');
     this._popupPreviewElements.picture.setAttribute('src', src);
     this._popupPreviewElements.picture.setAttribute('alt', description);
     this._popupPreviewElements.desc.textContent = description;
