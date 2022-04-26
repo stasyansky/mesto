@@ -43,7 +43,7 @@ const profileProf = document.querySelector('.profile__prof');
 const popupList = document.querySelectorAll('.popup');
 const popupEdit = document.querySelector('.popup-edit');
 const popupAdd = document.querySelector('.popup-add');
-const popupPreview = document.querySelector('.popup-preview');
+export const popupPreview = document.querySelector('.popup-preview');
 
 const formEdit = document.forms['formProfile'];
 const inputName = formEdit.elements.popupName;
@@ -55,10 +55,10 @@ const inputUrl = formAdd.elements.popupUrl;
 
 const cardElementsList = document.querySelector('.places__cards');
 const cardTemplate = document.querySelector('#card_template');
-const popupPreviewPicture = popupPreview.querySelector('.popup-preview__img');
-const popupPreviewPicDesc = popupPreview.querySelector('.popup-preview__text');
+export const popupPreviewPicture = popupPreview.querySelector('.popup-preview__img');
+export const popupPreviewPicDesc = popupPreview.querySelector('.popup-preview__text');
 
-function openPopup(currentPopup) {
+export function openPopup(currentPopup) {
   currentPopup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupByEscape);
 }
@@ -68,12 +68,6 @@ function createNewCard(data) {
     data,
     cardSelector: '.card',
     cardTemplate,
-    popupPreviewElements: {
-      picture: popupPreviewPicture,
-      desc: popupPreviewPicDesc,
-      preview: popupPreview,
-    },
-    openPopupFn: openPopup,
   })
 }
 
@@ -114,16 +108,6 @@ function addFormSubmit (evt) {
   closePopup(popupAdd);
 }
 
-function checkEventInputForm(currentPopup) {
-  const form = currentPopup.querySelector('.popup__form');
-  if (form) {
-    const inputs = form.querySelectorAll('.popup__input');
-    inputs.forEach(input => {
-      input.dispatchEvent(new Event('input'));
-    });
-  }
-}
-
 function resetFormPopup(currentPopup) {
   const form = currentPopup.querySelector('.popup__form');
     form.reset();
@@ -133,14 +117,13 @@ btnEditProfile.addEventListener('click', function () {
   resetFormPopup(popupEdit);
   inputName.value = profileName.textContent;
   inputProf.value = profileProf.textContent;
-  checkEventInputForm(popupEdit);
+  formEditFormValidator.checkEventInputForm();
   openPopup(popupEdit);
 });
 
 btnAddPicture.addEventListener('click', function () {
   resetFormPopup(popupAdd);
-  checkEventInputForm(popupAdd);
-  formAddFormValidator.resetValidationErrors();
+  formAddFormValidator.resetValidationForm();
   openPopup(popupAdd);
 });
 
