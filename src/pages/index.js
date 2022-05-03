@@ -1,3 +1,4 @@
+import './index.css';
 import { Card } from "../components/Card.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { Section } from "../components/Section.js";
@@ -42,12 +43,12 @@ const validationObj = {
 
 const btnEditProfile = document.querySelector('.profile__edit-btn');
 const btnAddPicture = document.querySelector('.profile__add-btn');
+const cardTemplate = document.querySelector('#card_template');
 
 const userInfo = new UserInfo({
   name: 'Жак-Ив Кусто',
   prof: 'Исследователь океана',
 });
-const cardTemplate = document.querySelector('#card_template');
 
 function cardPreviewOpen({ src, description }) {
   const popupPreview = new PopupWithImage('.popup-preview');

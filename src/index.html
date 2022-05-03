@@ -6,17 +6,16 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
 <body class="body">
   <div class="page">
     <header class="header">
-      <img class="header__logo" src="./images/logo.svg" alt="Логотип сайта"/>
+      <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип сайта"/>
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="./images/avatar.png" alt="Фотография аватара">
+        <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Фотография аватара">
         <div class="profile__container">
           <h1 class="profile__name"></h1>
           <button type="button" class="profile__edit-btn" aria-label="Редактировать профиль"></button>
@@ -155,6 +154,5 @@
     </li>
   </template>
   <!--  Шаблон карточки конец -->
-  <script type="module" src="./pages/index.js"></script>
 </body>
 </html>
