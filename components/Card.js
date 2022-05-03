@@ -1,19 +1,15 @@
-import {
-  popupPreview,
-  popupPreviewPicture,
-  popupPreviewPicDesc,
-  openPopup
-} from './index.js';
 export class Card {
   constructor ({
    data,
    cardSelector,
    cardTemplate,
+   cardPreviewFn,
   }) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._cardTemplate = cardTemplate;
+    this._cardPreviewFn = cardPreviewFn;
     this._generateCard();
   }
 
@@ -62,11 +58,9 @@ export class Card {
   }
 
   _handleOpenPreviewClick() {
-    const src = this._elementPic.getAttribute('src');
-    const description = this._elementPic.getAttribute('alt');
-    popupPreviewPicture.setAttribute('src', src);
-    popupPreviewPicture.setAttribute('alt', description);
-    popupPreviewPicDesc.textContent = description;
-    openPopup(popupPreview);
+    this._cardPreviewFn({
+      src: this._elementPic.getAttribute('src'),
+      description: this._elementPic.getAttribute('alt'),
+    });
   }
 }

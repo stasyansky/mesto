@@ -18,9 +18,9 @@
       <section class="profile">
         <img class="profile__avatar" src="./images/avatar.png" alt="Фотография аватара">
         <div class="profile__container">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <h1 class="profile__name"></h1>
           <button type="button" class="profile__edit-btn" aria-label="Редактировать профиль"></button>
-          <p class="profile__prof">Исследователь океана</p>
+          <p class="profile__prof"></p>
         </div>
         <button type="button" class="profile__add-btn" aria-label="Добавить фото"></button>
       </section>
@@ -34,7 +34,7 @@
   </div>
 
   <!--  Попап редактирования профиля начало -->
-  <div class="popup popup-edit">
+  <div tabindex="-1" class="popup popup-edit">
     <div class="popup__container popup-edit__container">
       <button
         type="button"
@@ -83,7 +83,7 @@
   <!--  Попап редактирования профиля конец -->
 
   <!--  Попап добавления карточки начало -->
-  <div class="popup popup-add">
+  <div tabindex="-1" class="popup popup-add">
     <div class="popup__container popup-add__container">
       <button
         type="button"
@@ -130,7 +130,7 @@
   <!--  Попап добавления карточки конец -->
 
   <!--  Попап открытия превью начало -->
-  <div class="popup popup-preview">
+  <div tabindex="-1" class="popup popup-preview">
     <div class="popup-preview__container">
       <button
         type="button"
@@ -155,6 +155,6 @@
     </li>
   </template>
   <!--  Шаблон карточки конец -->
-  <script type="module" src="./script/index.js"></script>
+  <script type="module" src="./pages/index.js"></script>
 </body>
 </html>
