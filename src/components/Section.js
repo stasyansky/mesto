@@ -1,6 +1,6 @@
 export class Section {
   constructor(
-    {items, renderer}= {
+    {items, renderer} = {
     items: [],
     renderer: () => {},
   },cardsContainerSelector) {
