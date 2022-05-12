@@ -3,13 +3,13 @@ export class Card {
    data,
    cardSelector,
    cardTemplate,
-   cardPreviewFn,
+   handleCardClick,
   }) {
     this._name = data.name;
     this._link = data.link;
     this._cardSelector = cardSelector;
     this._cardTemplate = cardTemplate;
-    this._cardPreviewFn = cardPreviewFn;
+    this._handleCardClick = handleCardClick;
     this._generateCard();
   }
 
@@ -58,9 +58,9 @@ export class Card {
   }
 
   _handleOpenPreviewClick() {
-    this._cardPreviewFn({
-      src: this._elementPic.getAttribute('src'),
-      description: this._elementPic.getAttribute('alt'),
+    this._handleCardClick({
+      src: this._link,
+      description: this._name,
     });
   }
 }

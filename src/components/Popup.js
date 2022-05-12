@@ -6,7 +6,6 @@ export class Popup {
   }
 
   open() {
-    this.setEventListeners();
     this._popupElement.classList.add('popup_opened');
     setTimeout(() => {
       this._popupElement.focus();
@@ -14,7 +13,6 @@ export class Popup {
   }
 
   close() {
-    this._removeEventListeners();
     this._popupElement.classList.remove('popup_opened');
   }
 
@@ -36,10 +34,5 @@ export class Popup {
   setEventListeners() {
     this._popupElement.addEventListener('keydown', this._handeEscCloseBinded);
     this._popupElement.addEventListener('mousedown', this._closeByMouseBinded);
-  }
-
-  _removeEventListeners() {
-    this._popupElement.removeEventListener('keydown', this._handeEscCloseBinded);
-    this._popupElement.removeEventListener('mousedown', this._closeByMouseBinded);
   }
 }
