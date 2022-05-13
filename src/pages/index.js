@@ -66,7 +66,7 @@ function handleAddCardFormSubmit(evt) {
 }
 
 btnEditProfile.addEventListener('click', function () {
-  const { name, prof } = userInfo.getUserInfo()
+  const { name, prof } = userInfo.getUserInfo();
   popupProfile.setInputValues({
     popupName: name,
     popupProf: prof,
