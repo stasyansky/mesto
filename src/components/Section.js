@@ -8,10 +8,6 @@ export class Section {
     this._items = items;
   }
 
-  deleteItem(itemId) {
-    this._items = this._items.filter(item => item.cardId !== itemId);
-  }
-
   renderCards() {
     this._cardsContainer.innerHTML = '';
     this._cardsContainer.append(
@@ -21,8 +17,7 @@ export class Section {
     );
   }
 
-  addItem(domElement, cardData) {
-    this._items.unshift(cardData);
+  addItem(domElement) {
     this._cardsContainer
       .prepend(domElement);
   }

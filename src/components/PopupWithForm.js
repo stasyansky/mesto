@@ -22,8 +22,8 @@ export class PopupWithForm extends Popup {
     return Object.fromEntries(new FormData(this._form).entries());
   }
 
-  getPopupSubmitElem() {
-    return this._formSubmitElem;
+  setButtonText(text) {
+    this._formSubmitElem.textContent = text;
   }
 
   setEventListeners() {

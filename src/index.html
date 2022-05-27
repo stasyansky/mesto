@@ -15,7 +15,7 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__avatar" src="<%=require('./images/avatar.png')%>" alt="Фотография аватара">
+        <img class="profile__avatar" src="#" alt="Фотография аватара">
         <div class="profile__container">
           <h1 class="profile__name">Жак-Ив Кусто</h1>
           <button type="button" class="profile__edit-btn" aria-label="Редактировать профиль"></button>
@@ -171,14 +171,8 @@
       </button>
       <form name="formDelete" class="popup__form popup__form_delete">
         <h2 class="popup__title">Вы уверены?</h2>
-        <input
-          type="text"
-          name="cardId"
-          class="popup__input popup__input_invisible"
-          value=""
-        />
         <button
-          type="submit"
+          type="button"
           class="popup__btn popup__btn_delete"
           aria-label="Кнопка удалить">
           Да

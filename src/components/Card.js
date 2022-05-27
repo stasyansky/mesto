@@ -1,12 +1,12 @@
 export class Card {
   constructor ({
-   data,
-   cardSelector,
-   cardTemplate,
-   handleCardClick,
-  }, popupDeletePic, api) {
-    this._api = api;
-    this._popupDeletePic = popupDeletePic;
+    data,
+    cardSelector,
+    cardTemplate,
+    handleCardClick,
+    handleCardLike,
+    handleDeleteClick,
+  }) {
     this._name = data.name;
     this._link = data.link;
     this._cardId = data.cardId;
@@ -17,6 +17,8 @@ export class Card {
     this._cardSelector = cardSelector;
     this._cardTemplate = cardTemplate;
     this._handleCardClick = handleCardClick;
+    this._handleCardLike = handleCardLike;
+    this._handleDeleteClick = handleDeleteClick;
     this._generateCard();
   }
 
@@ -33,8 +35,11 @@ export class Card {
 
   _updateDynamicElements() {
     this._elementLikeCount.textContent = this._likeIds.length;
-    if (this._isLikedByMe) {
+    const hasLikedByMe = this._elementLike.classList.contains('card__like_active');
+    if (this._isLikedByMe && !hasLikedByMe) {
       this._elementLike.classList.add('card__like_active');
+    } else if (hasLikedByMe) {
+      this._elementLike.classList.remove('card__like_active');
     }
   }
 
@@ -62,7 +67,7 @@ export class Card {
     });
     if (this._elementDelete) {
       this._elementDelete.addEventListener('click', () => {
-        this._handleDeleteClick();
+        this._handleDeleteElemClick();
       });
     }
     this._elementPic.addEventListener('click', () => {
@@ -70,25 +75,27 @@ export class Card {
     });
   }
 
-  _handleLikeClick() {
-    this._api.toggleLike({
-      cardId: this._cardId,
-      isLikedByMe: this._isLikedByMe,
-    })
-      .then(newCardData => {
-        this._likeIds = newCardData.likes.map(user => user._id);
-        this._isLikedByMe = !this._isLikedByMe;
-        this._updateDynamicElements();
-      })
-      .catch(err => console.error(err))
-    this._elementLike.classList.toggle('card__like_active');
+  _toggleLike(newCardData) {
+    this._likeIds = newCardData.likes.map(user => user._id);
+    this._isLikedByMe = !this._isLikedByMe;
+    this._updateDynamicElements();
   }
 
-  _handleDeleteClick() {
-    this._popupDeletePic.open();
-    this._popupDeletePic.setInputValues({
+  _handleLikeClick() {
+    this._handleCardLike({
       cardId: this._cardId,
-    });
+      isLikedByMe: this._isLikedByMe,
+    }, this._toggleLike.bind(this));
+  }
+
+  _deleteCard() {
+    this.cardElement.remove();
+  }
+
+  _handleDeleteElemClick() {
+    this._handleDeleteClick({
+      cardId: this._cardId,
+    }, this._deleteCard.bind(this));
   }
 
   _handleOpenPreviewClick() {
