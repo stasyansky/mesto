@@ -33,7 +33,6 @@
 .popup__title{align-self:start;font-size:18px;font-weight:900;margin:28px 0 68px 21px}@media screen and (min-width:694px){.popup__title{font-size:24px;margin:35px 0 44px 36px}}
 .popup__input{border:none;border-bottom:1px solid rgba(0,0,0,.2);font-size:14px;font-weight:400;height:27px;outline:none;width:238px}@media screen and (min-width:694px){.popup__input{height:27px;width:358px}}
 .popup__input_incorrect{border-bottom-color:red}
-.popup__input_invisible{display:none}
 .popup__text-error{color:red;display:block;font-size:12px;font-weight:400;height:12px;line-height:12px;margin:6px 0 0;min-height:24px;opacity:0;width:238px}@media screen and (min-width:694px){.popup__text-error{width:358px}}
 .popup__text-error_active{opacity:1}
 .popup__btn{background-color:#000;border:none;border-radius:2px;color:#fff;display:block;font-size:14px;font-weight:400;height:46px;margin:15px 0 0;padding:0;transition:opacity .3s linear;width:238px}.popup__btn:hover:not(.popup__btn_disabled){cursor:pointer;opacity:.8}@media screen and (min-width:694px){.popup__btn{font-size:18px;height:50px;margin:17px 0 0;width:358px}}
