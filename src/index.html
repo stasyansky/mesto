@@ -72,7 +72,7 @@
         </label>
         <button
           type="submit"
-          class="popup__btn popup__btn_save"
+          class="popup__btn popup__btn_save-profile"
           aria-label="Кнопка сохранить">
           Сохранить
         </button>
@@ -128,6 +128,66 @@
   </div>
   <!--  Попап добавления карточки конец -->
 
+  <!--  Попап редактирования аватарки начало -->
+  <div tabindex="-1" class="popup popup-avatar">
+    <div class="popup__container popup-avatar__container">
+      <button
+        type="button"
+        class="popup__close-btn popup-avatar__close-btn"
+        aria-label="Закрыть попап">
+      </button>
+      <form name="formAvatar" class="popup__form popup__form_avatar" novalidate>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <label class="popup__field">
+          <input
+            type="url"
+            id="avatar"
+            name="popupAvatar"
+            class="popup__input popup__input_type_avatar"
+            value=""
+            placeholder="Введите url картинки"
+            required
+          />
+          <span class="popup__text-error" id="avatar-error"></span>
+        </label>
+        <button
+          type="submit"
+          class="popup__btn popup__btn_save-avatar"
+          aria-label="Кнопка сохранить">
+          Сохранить
+        </button>
+      </form>
+    </div>
+  </div>
+  <!--  Попап редактирования аватарки конец -->
+
+  <!--  Попап подтверждения удаления начало -->
+  <div tabindex="-1" class="popup popup-delete">
+    <div class="popup__container popup-delete__container">
+      <button
+        type="button"
+        class="popup__close-btn popup-delete__close-btn"
+        aria-label="Закрыть попап">
+      </button>
+      <form name="formDelete" class="popup__form popup__form_delete">
+        <h2 class="popup__title">Вы уверены?</h2>
+        <input
+          type="text"
+          name="cardId"
+          class="popup__input popup__input_invisible"
+          value=""
+        />
+        <button
+          type="submit"
+          class="popup__btn popup__btn_delete"
+          aria-label="Кнопка удалить">
+          Да
+        </button>
+      </form>
+    </div>
+  </div>
+  <!--  Попап подтверждения удаления конец -->
+
   <!--  Попап открытия превью начало -->
   <div tabindex="-1" class="popup popup-preview">
     <div class="popup-preview__container">
@@ -149,7 +209,10 @@
       <img class="card__pic" src="#" alt="_"/>
       <div class="card__caption">
         <h2 class="card__text"></h2>
-        <button type="button" class="card__like" aria-label="Поставить лайк"></button>
+        <div class="card__likes">
+          <button type="button" class="card__like" aria-label="Поставить лайк"></button>
+          <span class="card__count">0</span>
+        </div>
       </div>
     </li>
   </template>
