@@ -8,7 +8,7 @@ export class PopupCardDelete extends Popup {
   }
 
   setEventListeners() {
-    super.setEventListeners();
+    super._setEventListeners();
     this._btnElem.addEventListener('click', this._handleFormSubmit);
   }
 

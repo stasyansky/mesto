@@ -10,6 +10,7 @@ export class Popup {
     setTimeout(() => {
       this._popupElement.focus();
     }, 100);
+    this._setEventListeners();
   }
 
   close() {
@@ -20,22 +21,19 @@ export class Popup {
   _handleEscClose(evt) {
     if (evt.key === 'Escape') {
       this.close();
-      this._removeEventListeners();
     }
   }
 
   _closeByMouse(evt) {
     if (evt.target.classList.contains('popup_opened')) {
       this.close();
-      this._removeEventListeners();
     }
     if (evt.target.classList.contains('popup__close-btn')) {
       this.close();
-      this._removeEventListeners();
     }
   }
 
-  setEventListeners() {
+  _setEventListeners() {
     this._popupElement.addEventListener('keydown', this._handeEscCloseBinded);
     this._popupElement.addEventListener('mousedown', this._closeByMouseBinded);
   }

@@ -18,9 +18,13 @@ import {
 const sectionCards = new Section(createNewCard, '.places__cards');
 const popupPreview = new PopupWithImage('.popup-preview');
 const popupProfile = new PopupWithForm('.popup-edit', handleProfileFormSubmit);
+popupProfile.setEventListeners();
 const popupAddPic = new PopupWithForm('.popup-add', handleAddCardFormSubmit);
+popupAddPic.setEventListeners();
 const popupDeletePic = new PopupCardDelete('.popup-delete', handleConfirmDeleteSubmit);
+popupDeletePic.setEventListeners();
 const popupAvatar = new PopupWithForm('.popup-avatar', handleAvatarFormSubmit);
+popupAvatar.setEventListeners();
 
 const formEditFormValidator = new FormValidator({data: validationObj, validateElement: 'formProfile'})
 formEditFormValidator.enableValidation();
@@ -88,7 +92,6 @@ function createNewCard(data) {
 
 function _handlerCardDeleteClick({ cardId }, callback) {
   popupDeletePic.open();
-  popupDeletePic.setEventListeners();
   popupDeletePic.setCardData(cardId, callback);
 }
 
@@ -102,7 +105,6 @@ function cardLikeToggle(data, callback) {
 
 function cardPreviewOpen({ src, description }) {
   popupPreview.open({ src, description });
-  popupPreview.setEventListeners();
 }
 
 function handleProfileFormSubmit(evt) {
@@ -186,16 +188,13 @@ btnEditProfile.addEventListener('click', function () {
   });
   formEditFormValidator.checkEventInputForm();
   popupProfile.open();
-  popupProfile.setEventListeners();
 });
 
 btnAddPicture.addEventListener('click', function () {
   formAddFormValidator.resetValidationForm();
   popupAddPic.open();
-  popupAddPic.setEventListeners();
 });
 
 avatarEditBtn.addEventListener('click', function () {
   popupAvatar.open();
-  popupAvatar.setEventListeners();
 });
